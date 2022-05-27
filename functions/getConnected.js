@@ -1,8 +1,17 @@
-import admin from "firebase-admin"
+import { initializeApp, getApps, cert } from "firebase-admin/app"
+import { getFirestore } from "firebase-admin/firestore"
 import serviceAccount from "./credentials.js"
 
-admin.initializeApp({credential: admin.credential.cert(serviceAccount)})
+export default function connectDb(){
 
-const db = admin.firestore()
+    if (getApps().length === 0) {
 
-export default quoteConnect = db.collection("quotes")
+        
+        initializeApp({
+            credential: cert(serviceAccount)})
+    }
+    return getFirestore()
+    
+    
+}
+
