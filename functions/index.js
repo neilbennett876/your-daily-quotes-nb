@@ -12,7 +12,7 @@ app.use(express.json());
 
 //Routes
 app.get("/quotes", getAllQuotes);
-app.post("/addquote", addQuote);
+app.post("/quotes", addQuote);
 
 
 
